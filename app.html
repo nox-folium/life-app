@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>生活リズム改善アプリ</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+<body>
+    <div class="waku">
+        <h1 style="font-size: 30px; margin-top: 0;">今日のスケジュール</h1>
+
+        <!-- 入力エリア -->
+        <div class="form-area">
+            <label>時間：<input type="time" id="zikan" required></label>
+            <br>
+            <label>予定：<input type="text" id="mokuhyou" placeholder="例：朝の散歩をする" style="width: 450px;" onkeydown="if(event.key==='Enter')tuika()"></label>
+            <br>
+            <!-- 追加ボタン -->
+            <button class="add-btn" onclick="tuika()">＋ スケジュールを追加</button>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid #cbd5e1; margin: 25px 0;">
+
+        <!-- スケジュール表示場所 -->
+        <div id="itiran"></div>
+    </div>
+
+    <!-- JavaScriptを読み込む -->
+    <script src="index.js"></script>
+</body>
+</html>
