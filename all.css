@@ -1,0 +1,117 @@
+
+/* ページ全体の設定 */
+body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'メイリオ', sans-serif;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+/* メインの枠 */
+.waku {
+    border: 2px solid #334155;
+    border-radius: 8px;
+    padding: 40px;
+    width: 750px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* タイトル */
+.main-title {
+    font-size: 30px;
+    margin-top: 0;
+}
+
+/* 入力エリア */
+.form-area {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* 予定入力欄 */
+#mokuhyou {
+    width: 450px;
+}
+
+/* 区切り線 */
+.separator {
+    border: none;
+    border-top: 1px solid #cbd5e1;
+    margin: 25px 0;
+}
+
+/* スケジュール一覧 */
+.list-box {
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid #0f172a;
+    border-radius: 4px;
+    padding: 15px 20px;
+    margin: 12px auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-size: 20px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* 入力欄とボタンの共通設定 */
+input, button {
+    font-size: 18px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border: 1px solid #94a3b8;
+    border-radius: 4px;
+}
+
+/* 入力欄を選択したとき */
+input:focus {
+    outline: 2px solid #0f172a;
+}
+
+/* スケジュール追加ボタン */
+button.add-btn {
+    background-color: #0f172a;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+/* 追加ボタンにカーソルを合わせたとき */
+button.add-btn:hover {
+    background-color: #334155;
+}
+
+/* 完了・削除ボタン */
+.del-btn {
+    font-size: 14px;
+    padding: 6px 12px;
+    margin: 0;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    transition: all 0.2s;
+}
+
+/* 削除ボタンにカーソルを合わせたとき */
+.del-btn:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+/* スケジュールが空の場合 */
+.empty-msg {
+    font-size: 18px;
+    color: #64748b;
+    margin-top: 15px;
+}
