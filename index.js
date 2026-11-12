@@ -59,6 +59,7 @@ function tuika() {
     // 時間の早い順に整列
     items.sort((a, b) => a.time.localeCompare(b.time));
 
+    narabikae();
     hozon();
     hyouzi();
 
@@ -68,6 +69,10 @@ function tuika() {
 
 // スケジュール削除
 function sakujo(index) {
+    // 確認メッセージ
+    if(!confirm("このスケジュールを削除しますか？")){
+        return;
+    }
     // index番目の予定を削除
     items.splice(index, 1);
 
@@ -84,8 +89,17 @@ function kanryou(index) {
     const completedItem = items.splice(index, 1)[0];
     items.push(completedItem);
 
+    narabikae();
     hozon();
     hyouzi();
+}
+
+// スケジュールの並び替え
+function narabikae(){
+    // 達成済みスケジュールは下に並べる（時間の早い順）
+    items.sort((a,b)=> {
+        return Number(a.completed === true) - Number(b.completed === true)|| a.time.localeCompare(b.time);
+    });
 }
 
 // スケジュール表示
@@ -100,15 +114,25 @@ function hyouzi() {
 
     itiran.innerHTML = items.map((item, i) => `
         <div class="list-box">
-            <span style="${item.completed ? 'text-decoration: line-through; color:gray;' : ''}">
-                <b>【${item.time}】</b> ${item.text}
-            </span>
-
+            <!-- 達成ボタン -->
             <button
-                class="del-btn"
+                class="complete-btn"
                 onclick="kanryou(${i})"
                 ${item.completed ? 'disabled' : ''}>
                 ${item.completed ? '達成済み' : '達成'}
+            </button>
+
+            <!-- スケジュール内容 -->
+            <span class="schedule"
+                style="${item.completed ? 'text-decoration: line-through; color:gray;' : ''}">
+                <b>【${item.time}】</b> ${item.text}
+            </span>
+
+            <!-- 削除ボタン -->
+            <button
+                class="del-btn"
+                onclick="sakujo(${i})">
+                削除
             </button>
         </div>
     `).join('');
