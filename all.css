@@ -1,97 +1,110 @@
-
 /* ページ全体の設定 */
 body {
-    font-family: 'Segoe UI', 'Hiragino Sans', 'メイリオ', sans-serif;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    background-color: #f8fafc;
-    color: #1e293b;
+    font-family: 'Segoe UI', 'Hiragino Sans', 'メイリオ', sans-serif; /* フォント指定 */
+    font-size: 20px; /* 基本の文字サイズ */
+    display: flex; /* flexboxで配置調整 */
+    justify-content: center; /* 横方向の中央に配置 */
+    padding-top: 30px; /* ページ上部の余白 */
+    background-color: #f8fafc; /* 背景色 */
+    color: #1e293b; /* 基本の文字色 */
 }
 
 /* メインの枠 */
 .waku {
-    border: 2px solid #334155;
-    border-radius: 8px;
-    padding: 40px;
-    width: 750px;
-    text-align: center;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 2px solid #334155; /* 線の太さ・色 */
+    border-radius: 8px; /* 角丸 */
+    padding: 40px; /* 内側の余白 */
+    width: 750px; /* 横幅 */
+    text-align: center; /* 文字を中央揃え */
+    background-color: #ffffff; /* 背景色 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 影 */
 }
 
 /* タイトル */
 .main-title {
-    font-size: 30px;
-    margin-top: 0;
+    font-size: 30px; /* 文字サイズ */
+    margin-top: 0; /* 余白消去 */
 }
 
 /* 入力エリア */
 .form-area {
-    text-align: left;
+    text-align: left; /* 入力欄の文字を左揃え */
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* 下部余白 */
 }
 
 /* 予定入力欄 */
 #mokuhyou {
-    width: 450px;
+    width: 450px; /* 予定入力欄の横幅 */
 }
 
 /* 区切り線 */
 .separator {
     border: none;
-    border-top: 1px solid #cbd5e1;
-    margin: 25px 0;
+    border-top: 1px solid #cbd5e1; /* 細い線を表示 */
+    margin: 25px 0; /* 上下余白 */
 }
 
 /* スケジュール一覧 */
 .list-box {
     border: 1px solid #cbd5e1;
-    border-left: 5px solid #0f172a;
+    border-left: 5px solid #0f172a; /* 左側のみ太くする */
     border-radius: 4px;
     padding: 15px 20px;
-    margin: 12px auto;
+    margin: 12px auto; /* 上下余白・左右中央揃え */
     width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* flexboxで横並び */
+    flex-direction: row; /* 左から順に整列 */
+    justify-content: flex-start;
+    gap:10px; /* 要素同士の間隔 */
+    align-items: center; /* 上下中央揃え */
     text-align: left;
     font-size: 20px;
     background-color: #ffffff;
-    box-sizing: border-box;
+    box-sizing: border-box; /* padding・borderを横幅に含める */
 }
 
 /* 入力欄とボタンの共通設定 */
 input, button {
     font-size: 18px;
     padding: 8px 12px;
-    margin-top: 10px;
+    margin-top: 10px; /* 上部余白 */
     border: 1px solid #94a3b8;
     border-radius: 4px;
 }
 
 /* 入力欄を選択したとき */
 input:focus {
-    outline: 2px solid #0f172a;
+    outline: 2px solid #0f172a; /* 枠線で強調 */
 }
 
 /* スケジュール追加ボタン */
 button.add-btn {
     background-color: #0f172a;
     color: #ffffff;
-    cursor: pointer;
+    cursor: pointer; /* 指型カーソルに変更 */
     border: none;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s; /* 背景色の変更を滑らかに行う */
 }
 
 /* 追加ボタンにカーソルを合わせたとき */
 button.add-btn:hover {
     background-color: #334155;
 }
+/* 達成ボタン */
+.complete-btn {
+    margin: 0;
+    flex-shrink: 0; /* 横幅の縮み防止 */
+}
 
-/* 完了・削除ボタン */
+/* スケジュール表示 */
+.schedule {
+    flex: 0 1 auto;
+    text-align: left; /* 左寄せ */
+    min-width: 0; /* 内容が長い場合は縮小 */
+}
+
+/* 削除ボタン */
 .del-btn {
     font-size: 14px;
     padding: 6px 12px;
@@ -101,6 +114,8 @@ button.add-btn:hover {
     color: #ef4444;
     border: 1px solid #ef4444;
     transition: all 0.2s;
+    margin-left: auto; /* 右寄せ */
+    flex-shrink: 0;
 }
 
 /* 削除ボタンにカーソルを合わせたとき */
