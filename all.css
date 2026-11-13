@@ -38,13 +38,6 @@ body {
     width: 450px; /* 予定入力欄の横幅 */
 }
 
-/* 区切り線 */
-.separator {
-    border: none;
-    border-top: 1px solid #cbd5e1; /* 細い線を表示 */
-    margin: 25px 0; /* 上下余白 */
-}
-
 /* スケジュール一覧 */
 .list-box {
     border: 1px solid #cbd5e1;
@@ -129,4 +122,54 @@ button.add-btn:hover {
     font-size: 18px;
     color: #64748b;
     margin-top: 15px;
+}
+
+/* グラフ全体 */
+.graph-area{
+    width: 90%;
+    margin: 20px auto 25px;
+    text-align: left;
+}
+
+/* グラフのタイトル・数値 */
+.graph-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold; /*  */
+}
+
+/* 達成率の数値 */
+.graph-rate{
+    color :#35e735;
+    font-size: 24px;
+}
+
+/* 帯グラフの背景 */
+.graph-bar{
+    width: 100%;
+    height: 18px;
+    background-color: #cbd5e1;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* グラフの達成済み部分 */
+.graph-fill{
+    height: 100%;
+    width: 0%;
+    background-color: #cbd5e1;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* 達成数・未達成数表示 */
+.graph-detail{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #cbd5e1;
 }
