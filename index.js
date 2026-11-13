@@ -104,6 +104,7 @@ function narabikae(){
 
 // スケジュール表示
 function hyouzi() {
+    tasseirituHyouji();
     // 表示場所を取得
     const itiran = document.getElementById("itiran");
     // スケジュール0件のとき
@@ -111,7 +112,7 @@ function hyouzi() {
         itiran.innerHTML = '<div class="empty-msg"></div>';
         return;
     }
-
+    // HTMLとして表示
     itiran.innerHTML = items.map((item, i) => `
         <div class="list-box">
             <!-- 達成ボタン -->
@@ -136,6 +137,42 @@ function hyouzi() {
             </button>
         </div>
     `).join('');
+}
+
+// 達成率グラフ表示
+function tasseirituHyouji(){
+    // 予定の件数を取得
+    const total = items.length;
+    // completedがtrueの予定の件数を取得
+    const completedCount = items.filter(item => item.completed === true).length;
+    // 予定0件のときは0％
+    const rate = total === 0 ? 0 : Math.round((completedCount / total) * 100);
+    // グラフの場所取得
+    const tasseiritu = document.getElementById("tasseiritu");
+    // HTMLとして表示
+    tasseiritu.innerHTML = `
+        <div class="graph-area>
+
+            <!-- 達成率 -->
+            <div class="graph=header">
+                <span>達成率</apan>
+                <span class="graph-rate">${rate}%</span>
+            </div>
+
+            <!-- 帯グラフ -->
+            <div class="graph-bar">
+                <!-- 達成率に応じて幅変化 -->
+                <div class="graph-fill" style="width: ${rate}%;">
+                </div>
+            </div>
+
+            <!-- 達成・未達成 -->
+            <div class="graph-detail">
+                <span>達成済み:${completedCount}件</span>
+                <span>未達成:${total-completedCount}件</span>
+            </div>
+        </div>
+    `;
 }
 
 // 初期処理
