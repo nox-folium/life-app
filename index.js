@@ -151,7 +151,7 @@ function tasseirituHyouji(){
     const tasseiritu = document.getElementById("tasseiritu");
     // HTMLとして表示
     tasseiritu.innerHTML = `
-        <div class="graph-area>
+        <div class="graph-area">
 
             <!-- 達成率 -->
             <div class="graph-header">
