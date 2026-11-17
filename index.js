@@ -154,8 +154,8 @@ function tasseirituHyouji(){
         <div class="graph-area>
 
             <!-- 達成率 -->
-            <div class="graph=header">
-                <span>達成率</apan>
+            <div class="graph-header">
+                <span>達成率</span>
                 <span class="graph-rate">${rate}%</span>
             </div>
 
