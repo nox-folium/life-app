@@ -143,7 +143,7 @@ button.add-btn:hover {
 
 /* 達成率の数値 */
 .graph-rate{
-    color :#35e735;
+    color :#1ccc83;
     font-size: 24px;
 }
 
@@ -160,7 +160,7 @@ button.add-btn:hover {
 .graph-fill{
     height: 100%;
     width: 0%;
-    background-color: #cbd5e1;
+    background-color: #1ccc83;
     border-radius: 20px;
     transition: width 0.4s ease;
 }
