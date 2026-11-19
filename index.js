@@ -178,7 +178,7 @@ function tasseirituHyouji(){
 
 
 // GASのURL 
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwA_OJdbludbwRRyaQ3jCtvj0FZce2TsCVIUXx55kfh9Y423oh0e_mCLOJKQQjCUMSNtA/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyEtfOt32bisz-7p737e-PIrIy9MpsoHbA52CaXWrYSU28nMITWXcOci81_ych6yOxpfA/exec";
 // GAS送信
 function sendGAS(){
     const now = new Date().toLocaleString("ja-JP");
