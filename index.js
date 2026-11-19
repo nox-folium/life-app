@@ -59,6 +59,7 @@ function tuika() {
     // 時間の早い順に整列
     items.sort((a, b) => a.time.localeCompare(b.time));
 
+    sendGAS();
     narabikae();
     hozon();
     hyouzi();
@@ -173,6 +174,33 @@ function tasseirituHyouji(){
             </div>
         </div>
     `;
+}
+
+
+// GASのURL 
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwA_OJdbludbwRRyaQ3jCtvj0FZce2TsCVIUXx55kfh9Y423oh0e_mCLOJKQQjCUMSNtA/exec";
+// GAS送信
+function sendGAS(){
+    const now = new Date().toLocaleString("ja-JP");
+    const zikanList = items.map(item => item.time);
+    console.log("info:",{
+        data:now,
+        times:zikanList
+    });
+    fetch(GAS_URL,{
+        method:"POST",
+        body:JSON.stringify({
+            date:now,
+            times:zikanList
+        })
+    // 動作確認用
+    })
+    .then(data => {
+        console.log("win",data);
+    })
+    .catch(error => {
+        console.error("lose",error);
+    });
 }
 
 // 初期処理
