@@ -146,7 +146,7 @@ function tasseirituHyouji(){
     const total = items.length;
     // completedがtrueの予定の件数を取得
     const completedCount = items.filter(item => item.completed === true).length;
-    // 達成率を取得（予定0件のときは0％）
+    // 予定0件のときは0％
     const rate = total === 0 ? 0 : Math.round((completedCount / total) * 100);
     // グラフの場所取得
     const tasseiritu = document.getElementById("tasseiritu");
@@ -187,6 +187,7 @@ function ouenHyouji(){
     const rate = total === 0 ? 0 : Math.round((completedCount / total) * 100);
     // コメントの場所取得
     const ouen = document.getElementById("ouen");
+    let message = "";
     // 達成率に合わせてコメント表示
     if(rate === 0){ // 0%
         message = "①";
@@ -209,7 +210,6 @@ function ouenHyouji(){
         </div>
     `;
 }
-
 
 // GASのURL 
 const GAS_URL = "https://script.google.com/macros/s/AKfycbyEtfOt32bisz-7p737e-PIrIy9MpsoHbA52CaXWrYSU28nMITWXcOci81_ych6yOxpfA/exec";
