@@ -146,7 +146,7 @@ function tasseirituHyouji(){
     const total = items.length;
     // completedがtrueの予定の件数を取得
     const completedCount = items.filter(item => item.completed === true).length;
-    // 予定0件のときは0％
+    // 達成率を取得（予定0件のときは0％）
     const rate = total === 0 ? 0 : Math.round((completedCount / total) * 100);
     // グラフの場所取得
     const tasseiritu = document.getElementById("tasseiritu");
@@ -172,6 +172,40 @@ function tasseirituHyouji(){
                 <span>達成済み:${completedCount}件</span>
                 <span>未達成:${total-completedCount}件</span>
             </div>
+        </div>
+    `;
+    ouenHyouji();
+}
+
+// 応援コメント表示
+function ouenHyouji(){
+    // 予定の件数を取得
+    const total = items.length;
+    // completedがtrueの予定の件数を取得
+    const completedCount = items.filter(item => item.completed === true).length;
+    // 達成率を取得（予定0件のときは0％）
+    const rate = total === 0 ? 0 : Math.round((completedCount / total) * 100);
+    // コメントの場所取得
+    const ouen = document.getElementById("ouen");
+    // 達成率に合わせてコメント表示
+    if(rate === 0){ // 0%
+        message = "①";
+    }else if(rate <30){ //1~29%
+        message = "②";
+    }else if(rate <50){ //30~49%
+        message ="③";
+    }else if(rate <80){  //50~79%
+        message ="④";
+    }else if(rate <100){ //80~99%
+        message ="⑤";
+    }else{ // 100%
+        message ="⑥";
+    }
+    // HTMLとして表示
+    ouen.innerHTML = `
+        <div class="ouen-area">
+            <div class="ouen-header">今日のひとこと</div>
+            <div class="ouen-text">${message}</div>
         </div>
     `;
 }
