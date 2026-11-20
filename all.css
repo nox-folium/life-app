@@ -173,3 +173,17 @@ button.add-btn:hover {
     font-size: 14px;
     color: #cbd5e1;
 }
+/* コメント全体 */
+.ouen-area{
+    background-color: #c1eedb;
+    font-size: 18px;
+    margin: 20px auto 25px;
+    border-radius: 8px;
+}
+/* コメントのタイトル */
+.ouen-header{
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
