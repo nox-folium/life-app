@@ -207,6 +207,7 @@ function ouenHyouji(){
             <div class="ouen-header">今日のひとこと</div>
             <div class="ouen-text">${message}</div>
         </div>
+    `;
 }
 
 
