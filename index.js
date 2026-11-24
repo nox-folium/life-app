@@ -211,6 +211,22 @@ function ouenHyouji(){
     `;
 }
 
+// ユーザーID取得
+function userId(){
+    // IDを取得
+    let userID = localStorage.getItem("userID");
+    // IDがないとき
+    if(!userID){
+        // 1000~9000の4桁のIDを生成
+        userID = "user-" + Math.floor(1000 + Math.random() * 9000);
+        // localStorageに保存
+        localStorage.setItem("userID",userID);
+    }
+    return userID;
+}
+const userID = userId();
+console.log("ユーザーID:",userID);
+
 // GASのURL 
 const GAS_URL = "https://script.google.com/macros/s/AKfycbyEtfOt32bisz-7p737e-PIrIy9MpsoHbA52CaXWrYSU28nMITWXcOci81_ych6yOxpfA/exec";
 // GAS送信
@@ -219,13 +235,15 @@ function sendGAS(){
     const zikanList = items.map(item => item.time);
     console.log("info:",{
         data:now,
-        times:zikanList
+        times:zikanList,
+        id:userID
     });
     fetch(GAS_URL,{
         method:"POST",
         body:JSON.stringify({
             date:now,
-            times:zikanList
+            times:zikanList,
+            id:userID
         })
     // 動作確認用
     })
