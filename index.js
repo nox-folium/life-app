@@ -77,6 +77,7 @@ function sakujo(index) {
     // index番目の予定を削除
     items.splice(index, 1);
 
+    sendGAS();
     hozon();
     hyouzi();
 }
@@ -90,6 +91,7 @@ function kanryou(index) {
     const completedItem = items.splice(index, 1)[0];
     items.push(completedItem);
 
+    sendGAS();
     narabikae();
     hozon();
     hyouzi();
@@ -211,6 +213,7 @@ function ouenHyouji(){
     `;
 }
 
+
 // ユーザーID取得
 function userId(){
     // IDを取得
@@ -229,21 +232,24 @@ console.log("ユーザーID:",userID);
 
 // GASのURL 
 const GAS_URL = "https://script.google.com/macros/s/AKfycbyEtfOt32bisz-7p737e-PIrIy9MpsoHbA52CaXWrYSU28nMITWXcOci81_ych6yOxpfA/exec";
-// GAS送信
+// GASへ送信
 function sendGAS(){
     const now = new Date().toLocaleString("ja-JP");
-    const zikanList = items.map(item => item.time);
+    const total = items.length;
+    const completedCount = items.filter(item => item.completed === true).length;
     console.log("info:",{
         data:now,
-        times:zikanList,
-        id:userID
+        id:userID,
+        total:total,
+        complete:completedCount
     });
     fetch(GAS_URL,{
         method:"POST",
         body:JSON.stringify({
-            date:now,
-            times:zikanList,
-            id:userID
+            date:now, // 現在時間
+            id:userID, // ID
+            total:total, // スケジュール個数
+            complete:completedCount //達成個数
         })
     // 動作確認用
     })
