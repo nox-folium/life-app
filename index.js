@@ -190,17 +190,17 @@ function ouenHyouji(){
     let message = "";
     // 達成率に合わせてコメント表示
     if(rate === 0){ // 0%
-        message = "①";
+        message = "まずは1つだけクリアして、0%から抜け出してみませんか？ ";
     }else if(rate <30){ //1~29%
-        message = "②";
+        message ="0から1にした時点で大勝利！ナイススタートです。";
     }else if(rate <50){ //30~49%
-        message ="③";
+        message ="いいペース！自分のリズムで着実に進んでいますね。";
     }else if(rate <80){  //50~79%
-        message ="④";
+        message ="半分突破！ここまで来た自分をたっぷり褒めてあげてください。";
     }else if(rate <100){ //80~99%
-        message ="⑤";
+        message ="100%まで一気に駆け抜けよう！やりきった後の爽快感が待っています。";
     }else{ // 100%
-        message ="⑥";
+        message ="完全達成おめでとうございます！今日の頑張りは本当に素晴らしいです。";
     }
     // HTMLとして表示
     ouen.innerHTML = `
