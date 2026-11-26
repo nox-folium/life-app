@@ -232,7 +232,6 @@ console.log("ユーザーID:",userID);
 
 // GASのURL 
 const GAS_URL = "https://script.google.com/macros/s/AKfycbyEtfOt32bisz-7p737e-PIrIy9MpsoHbA52CaXWrYSU28nMITWXcOci81_ych6yOxpfA/exec";
-
 // GASへ送信
 function sendGAS(){
     const now = new Date().toLocaleString("ja-JP");
